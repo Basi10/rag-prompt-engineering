@@ -34,10 +34,15 @@ class Evaluation:
 
         completion = self.client.chat.completions.create(**params)
         return completion
+    
+    def file_reader(self, path):
+        fname = os.path.join(path)
+        with open(fname, 'r') as f:
+            system_message = f.read()
+        return system_message
 
     def evaluate(self, prompt: str, user_message: str, context: str, use_test_data: bool = False) -> str:
         """Return the classification of the hallucination."""
-        num_test_output = str(10)
         API_RESPONSE = self.get_completion(
             [
                 {
@@ -62,3 +67,9 @@ class Evaluation:
             else:
                 classification = 'false'
         return classification
+    
+    def main(self, user_message: str, context: str, use_test_data: bool = False) -> str:
+        """Return the classification of the hallucination."""
+        prompt_message = self.file_reader('src/prompts/generic-evaluation-prompt.txt')
+        ans = self.evaluate(prompt=prompt_message, user_message=user_message, context=context)
+        return ans
