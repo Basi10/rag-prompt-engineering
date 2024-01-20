@@ -78,7 +78,7 @@ class WeaviatePDFManager:
             except weaviate.WeaviateException as e:
                 print(f"Error uploading data to class {class_name}: {e}")
 
-    def query_data(self, class_name, query_text, limit=8):
+    def query_data(self, class_name, query_text, limit=5):
         """
         Query data from Weaviate.
 
