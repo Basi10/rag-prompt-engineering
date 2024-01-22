@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from langchain import PromptTemplate
 from openai import OpenAI
 
+
 class ChatBot:
     def __init__(self, client: OpenAI):
         self.client = client
@@ -89,3 +90,5 @@ class ChatBot:
                 )
 
         return res.choices[0].message.content
+    
+ 
