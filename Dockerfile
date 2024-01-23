@@ -18,8 +18,5 @@ RUN npm run build
 # Change back to the working directory
 WORKDIR /app
 
-# Expose the port that Flask will run on
-EXPOSE 5000
-
-# Command to run your application
-CMD ["python", "app.py"]  # Replace "your_flask_app.py" with the actual name of your Flask application file
+# Run tests with pytest and then start your Flask application
+CMD ["sh", "-c", "pytest && python app.py"]
