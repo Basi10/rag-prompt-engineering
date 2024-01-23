@@ -2,3 +2,4 @@ weaviate
 openai
 unstructured[all-docs]
 Flask
+pytest
