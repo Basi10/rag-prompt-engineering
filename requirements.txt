@@ -1,4 +1,4 @@
-weaviate
+weaviate-client
 openai
 unstructured[all-docs]
 Flask
